@@ -342,9 +342,11 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 28px;
   opacity: 0;
   transition: opacity var(--transition-slow);
+  padding: 80px 24px 40px;
+  overflow-y: auto;
 }
 
 .mobile-overlay.active {
@@ -353,12 +355,16 @@ p {
 }
 
 .mobile-overlay .nav-link {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   letter-spacing: 2px;
+  padding: 8px 0;
 }
 
 .mobile-overlay .btn {
   margin-top: 16px;
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
 }
 
 /* ============================================
@@ -1798,6 +1804,9 @@ p {
 /* ============================================
    RESPONSIVE — TABLET (768px)
    ============================================ */
+/* ============================================
+   RESPONSIVE — TABLET (1024px)
+   ============================================ */
 @media (max-width: 1024px) {
   .team-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1815,12 +1824,34 @@ p {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Hero aurora smaller on tablet */
+  .hero-aurora::before {
+    width: 400px;
+    height: 400px;
+  }
+  .hero-aurora::after {
+    width: 350px;
+    height: 350px;
+  }
+  .hero-aurora-orb {
+    width: 250px;
+    height: 250px;
+  }
 }
 
+/* ============================================
+   RESPONSIVE — MOBILE (768px)
+   ============================================ */
 @media (max-width: 768px) {
   :root {
     --section-padding: 60px;
     --header-height: 70px;
+  }
+
+  /* Container less padding on mobile */
+  .container {
+    padding: 0 20px;
   }
 
   /* Nav */
@@ -1836,31 +1867,92 @@ p {
     display: flex;
   }
 
-  /* Hero */
+  /* Header logo smaller on mobile */
+  .header-logo img {
+    height: 34px;
+  }
+
+  /* Hero — full rework for mobile */
   .hero {
-    min-height: auto;
-    padding: 120px 0 60px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 0;
   }
 
   .hero-content {
-    padding: calc(var(--header-height) + 20px) 0 40px;
+    padding: calc(var(--header-height) + 32px) 0 48px;
+    max-width: 100%;
   }
 
   .hero-overlay {
     background: linear-gradient(
       to bottom,
-      rgba(10, 10, 10, 0.85) 0%,
-      rgba(10, 10, 10, 0.7) 100%
+      rgba(10, 10, 10, 0.75) 0%,
+      rgba(10, 10, 10, 0.85) 40%,
+      rgba(10, 10, 10, 0.92) 100%
     );
+  }
+
+  /* Reduce aurora effects on mobile for performance */
+  .hero-aurora {
+    opacity: 0.25;
+  }
+  .hero-aurora::before {
+    width: 300px;
+    height: 300px;
+    filter: blur(70px);
+  }
+  .hero-aurora::after {
+    width: 250px;
+    height: 250px;
+    filter: blur(60px);
+  }
+  .hero-aurora-orb {
+    width: 200px;
+    height: 200px;
+    filter: blur(60px);
+  }
+
+  /* Hide meteors on mobile — too distracting on small screen */
+  .hero-meteors {
+    display: none;
+  }
+
+  /* Spotlight simpler on mobile */
+  .hero-spotlight {
+    background: radial-gradient(
+      ellipse 100% 60% at 50% 40%,
+      transparent 0%,
+      rgba(10, 10, 10, 0.5) 60%,
+      rgba(10, 10, 10, 0.85) 100%
+    );
+  }
+
+  .hero-badge {
+    font-size: 0.7rem;
+    padding: 6px 14px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 32px;
   }
 
   .hero-buttons {
     flex-direction: column;
+    gap: 12px;
   }
 
   .hero-buttons .btn {
     width: 100%;
     text-align: center;
+    padding: 16px 24px;
   }
 
   /* About */
@@ -1871,12 +1963,22 @@ p {
 
   .about-image {
     order: -1;
-    max-height: 350px;
+    max-height: 300px;
+    border-radius: 4px;
+  }
+
+  .about-image img {
+    height: 300px;
+    object-fit: cover;
   }
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
+  }
+
+  .stat-item {
+    padding: 20px 12px;
   }
 
   /* Courses */
@@ -1888,15 +1990,50 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .course-card {
+    padding: 28px 20px;
+  }
+
+  .course-price {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .course-price .btn-small {
+    width: 100%;
+    text-align: center;
+  }
+
   /* Team */
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
+  }
+
+  .team-card {
+    padding: 24px 12px;
+  }
+
+  .team-photo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .team-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .team-role {
+    font-size: 0.68rem;
   }
 
   .team-certs {
     max-height: none;
     opacity: 1;
+  }
+
+  .team-certs ul li {
+    font-size: 0.68rem;
   }
 
   /* Location */
@@ -1906,35 +2043,64 @@ p {
   }
 
   .location-map {
-    height: 300px;
+    height: 280px;
   }
 
   /* Clase Zero */
   .clase-zero-content {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
 
   .clase-zero-visual {
     order: -1;
   }
 
+  .clase-zero-card {
+    padding: 36px 28px;
+  }
+
+  .clase-zero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .clase-zero-cta .btn {
+    width: 100%;
+    text-align: center;
+  }
+
   /* Testimonials */
   .testimonials-slider {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .testimonial-card {
+    padding: 28px 20px;
   }
 
   /* Contact */
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
 
   .form-row {
     grid-template-columns: 1fr;
   }
 
+  .contact-form .btn {
+    width: 100%;
+    text-align: center;
+  }
+
   /* Footer */
+  .footer {
+    padding: 48px 0 24px;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -1943,15 +2109,47 @@ p {
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    gap: 12px;
   }
 
-  /* Modal */
+  .footer-legal {
+    justify-content: center;
+  }
+
+  /* Modal — full screen on mobile */
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
   .modal {
-    padding: 32px 24px;
+    padding: 28px 20px;
+    border-radius: 16px 16px 0 0;
+    max-height: 90vh;
+    max-height: 90dvh;
+  }
+
+  .modal h2 {
+    font-size: 1.3rem;
+    padding-right: 40px;
   }
 
   .modal-details {
     grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .modal-section ul li {
+    font-size: 0.85rem;
+  }
+
+  .modal-price-block {
+    padding: 20px 16px;
+  }
+
+  .modal-price-block .course-price-value {
+    font-size: 1.6rem;
   }
 
   .modal-cta {
@@ -1961,22 +2159,188 @@ p {
   .modal-cta .btn {
     width: 100%;
   }
+
+  /* Scroll reveal — reduce movement on mobile */
+  .reveal {
+    transform: translateY(20px);
+  }
+
+  /* WhatsApp float smaller on mobile */
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .whatsapp-float svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Section labels and titles */
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
 }
 
+/* ============================================
+   RESPONSIVE — SMALL MOBILE (480px)
+   ============================================ */
 @media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .hero-badge {
+    font-size: 0.65rem;
+    padding: 5px 12px;
+  }
+
   .stat-item {
-    padding: 16px;
+    padding: 14px 8px;
   }
 
   .stat-number {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
   }
 
   .course-card {
-    padding: 28px 20px;
+    padding: 24px 16px;
+  }
+
+  .course-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .course-meta-item {
+    font-size: 0.8rem;
+  }
+
+  .course-price-value {
+    font-size: 1.3rem;
   }
 
   .team-grid {
     grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .team-card {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+    text-align: left;
+    padding: 20px 16px;
+    align-items: start;
+  }
+
+  .team-photo {
+    width: 70px;
+    height: 70px;
+    margin: 0;
+    grid-row: 1 / 3;
+  }
+
+  .team-card h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+
+  .team-role {
+    margin-bottom: 0;
+  }
+
+  .team-social {
+    grid-column: 2;
+  }
+
+  .team-certs {
+    grid-column: 1 / -1;
+  }
+
+  .team-certs ul {
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+
+  .testimonial-card {
+    padding: 24px 16px;
+  }
+
+  .testimonial-text {
+    font-size: 0.88rem;
+  }
+
+  .contact-method {
+    padding: 14px 16px;
+  }
+
+  .location-map {
+    height: 240px;
+  }
+
+  .clase-zero-card {
+    padding: 28px 20px;
+  }
+
+  .clase-zero-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .modal {
+    padding: 24px 16px;
+  }
+
+  .modal h2 {
+    font-size: 1.15rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION — Accessibility
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-aurora,
+  .hero-meteors,
+  .hero-particles {
+    display: none;
+  }
+
+  .hero h1 .shimmer-text {
+    animation: none;
+    background: var(--color-secondary);
+    -webkit-background-clip: text;
+    background-clip: text;
   }
 }
