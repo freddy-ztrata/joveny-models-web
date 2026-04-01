@@ -231,16 +231,17 @@ p {
   width: 100%;
   z-index: 1000;
   padding: 0 24px;
-  height: var(--header-height);
+  height: 90px;
   display: flex;
   align-items: center;
-  transition: background var(--transition-base), box-shadow var(--transition-base);
+  transition: background var(--transition-base), box-shadow var(--transition-base), height var(--transition-base);
 }
 
 .header.scrolled {
   background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(20px);
   box-shadow: 0 1px 0 var(--color-border);
+  height: var(--header-height);
 }
 
 .header-inner {
@@ -253,8 +254,13 @@ p {
 }
 
 .header-logo img {
-  height: 42px;
+  height: 60px;
   width: auto;
+  transition: height var(--transition-base);
+}
+
+.header.scrolled .header-logo img {
+  height: 44px;
 }
 
 .nav-menu {
@@ -1657,8 +1663,10 @@ p {
 }
 
 .footer-brand img {
-  height: 36px;
-  margin-bottom: 16px;
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
 }
 
 .footer-brand p {
@@ -1867,9 +1875,21 @@ p {
     display: flex;
   }
 
-  /* Header logo smaller on mobile */
+  /* Header smaller on mobile */
+  .header {
+    height: 70px;
+  }
+
+  .header.scrolled {
+    height: 60px;
+  }
+
   .header-logo img {
-    height: 34px;
+    height: 46px;
+  }
+
+  .header.scrolled .header-logo img {
+    height: 36px;
   }
 
   /* Hero — full rework for mobile */
