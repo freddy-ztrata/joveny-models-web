@@ -1589,7 +1589,18 @@ p {
   color: var(--color-secondary);
 }
 
-/* Contact Form */
+/* GHL Embedded Form */
+.contact-form-embed {
+  min-height: 906px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.contact-form-embed iframe {
+  min-height: 906px;
+}
+
+/* Contact Form (legacy — kept for reference) */
 .contact-form {
   display: flex;
   flex-direction: column;
