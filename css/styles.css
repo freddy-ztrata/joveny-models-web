@@ -1132,9 +1132,14 @@ p {
 }
 
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
+}
+
+.team-card {
+  width: calc(25% - 18px);
 }
 
 .team-card {
@@ -1816,8 +1821,8 @@ p {
    RESPONSIVE — TABLET (1024px)
    ============================================ */
 @media (max-width: 1024px) {
-  .team-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .team-card {
+    width: calc(33.333% - 16px);
   }
 
   .courses-grid {
@@ -2025,12 +2030,8 @@ p {
   }
 
   /* Team */
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
   .team-card {
+    width: calc(50% - 12px);
     padding: 24px 12px;
   }
 
@@ -2254,12 +2255,8 @@ p {
     font-size: 1.3rem;
   }
 
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
   .team-card {
+    width: 100%;
     display: grid;
     grid-template-columns: 80px 1fr;
     gap: 16px;
