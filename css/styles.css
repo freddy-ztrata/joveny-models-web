@@ -1858,7 +1858,7 @@ p {
   }
 
   .courses-grid-bottom {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .footer-grid {
