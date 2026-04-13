@@ -2136,11 +2136,24 @@ p {
 
   /* Testimonials */
   .testimonials-slider {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     gap: 16px;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+  }
+
+  .testimonials-slider::-webkit-scrollbar {
+    display: none;
   }
 
   .testimonial-card {
+    width: 72vw;
+    flex-shrink: 0;
+    scroll-snap-align: start;
     padding: 28px 20px;
   }
 
@@ -2324,6 +2337,7 @@ p {
   }
 
   .testimonial-card {
+    width: 72vw;
     padding: 24px 16px;
   }
 
