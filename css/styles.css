@@ -2031,7 +2031,6 @@ p {
     gap: 16px;
     padding: 0 4px 16px;
     scrollbar-width: none;
-    touch-action: pan-x;
   }
 
   .courses-grid::-webkit-scrollbar {
