@@ -2039,9 +2039,9 @@ p {
   }
 
   .course-card {
-    width: 72vw;
+    width: 65vw;
     flex-shrink: 0;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     padding: 24px 20px;
   }
 
