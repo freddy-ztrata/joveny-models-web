@@ -2015,13 +2015,12 @@ p {
 
   .about-image {
     order: -1;
-    max-height: 300px;
     border-radius: 4px;
   }
 
   .about-image img {
-    height: 300px;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
   }
 
   .stats-grid {
