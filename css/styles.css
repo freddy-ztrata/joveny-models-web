@@ -2055,8 +2055,25 @@ p {
   }
 
   /* Team */
+  .team-grid {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+  }
+
+  .team-grid::-webkit-scrollbar {
+    display: none;
+  }
+
   .team-card {
-    width: calc(50% - 12px);
+    width: 55vw;
+    flex-shrink: 0;
+    scroll-snap-align: start;
     padding: 24px 12px;
   }
 
@@ -2281,37 +2298,24 @@ p {
   }
 
   .team-card {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 16px;
-    text-align: left;
-    padding: 20px 16px;
-    align-items: start;
+    width: 55vw;
+    text-align: center;
+    padding: 20px 12px;
   }
 
   .team-photo {
-    width: 70px;
-    height: 70px;
-    margin: 0;
-    grid-row: 1 / 3;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 12px;
   }
 
   .team-card h3 {
     font-size: 0.9rem;
-    margin-bottom: 0;
+    margin-bottom: 2px;
   }
 
   .team-role {
-    margin-bottom: 0;
-  }
-
-  .team-social {
-    grid-column: 2;
-  }
-
-  .team-certs {
-    grid-column: 1 / -1;
+    margin-bottom: 4px;
   }
 
   .team-certs ul {
