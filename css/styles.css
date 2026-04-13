@@ -786,13 +786,6 @@ p {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-bottom: 24px;
-}
-
-.courses-grid-bottom {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
 }
 
 .course-card {
@@ -1857,10 +1850,6 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .courses-grid-bottom {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2033,37 +2022,33 @@ p {
   }
 
   /* Courses */
-  .courses-grid,
-  .courses-grid-bottom {
+  .courses-grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 16px;
     padding-bottom: 12px;
-    margin-bottom: 12px;
   }
 
-  .courses-grid::-webkit-scrollbar,
-  .courses-grid-bottom::-webkit-scrollbar {
+  .courses-grid::-webkit-scrollbar {
     height: 4px;
   }
 
-  .courses-grid::-webkit-scrollbar-track,
-  .courses-grid-bottom::-webkit-scrollbar-track {
+  .courses-grid::-webkit-scrollbar-track {
     background: rgba(255,255,255,0.05);
     border-radius: 2px;
   }
 
-  .courses-grid::-webkit-scrollbar-thumb,
-  .courses-grid-bottom::-webkit-scrollbar-thumb {
+  .courses-grid::-webkit-scrollbar-thumb {
     background: var(--color-secondary);
     border-radius: 2px;
   }
 
   .course-card {
     min-width: 280px;
-    max-width: 85vw;
+    width: 78vw;
+    max-width: 320px;
     flex-shrink: 0;
     scroll-snap-align: start;
     padding: 28px 20px;
