@@ -784,7 +784,7 @@ p {
 
 .courses-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin-bottom: 24px;
 }
@@ -793,8 +793,6 @@ p {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  max-width: 816px;
-  margin: 0 auto;
 }
 
 .course-card {
@@ -1855,7 +1853,6 @@ p {
 
   .courses-grid-bottom {
     grid-template-columns: 1fr;
-    max-width: 100%;
   }
 
   .footer-grid {
